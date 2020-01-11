@@ -25,6 +25,8 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         }
     }
     
+    var currentFlower = ""
+    
     let captureSession = AVCaptureSession()
     
     enum CardState {
@@ -264,8 +266,9 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             print(firstObservation.identifier, firstObservation.confidence)
             
             DispatchQueue.main.async {
-                if firstObservation.confidence > 0.85 {
+                if firstObservation.confidence > 0.95 {
                     self.cardViewController.itemLabel.text = firstObservation.identifier
+                    self.currentFlower = firstObservation.identifier
                 } else {
                     self.cardViewController.itemLabel.text = "-"
                 }
@@ -286,5 +289,32 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     }
 
 
+}
+
+extension GameViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if level.gameMode == .seek {
+            
+            let guessFlower = level.flowers!.first
+            
+            if currentFlower.caseInsensitiveCompare(guessFlower!) == .orderedSame {
+                
+                let alert = UIAlertController(title: "Congrats!", message: nil, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (action) in 
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                
+                self.present(alert, animated:true)
+                
+                
+                
+            }
+        }
+        
+    }
+    
 }
 

@@ -14,7 +14,7 @@ import AVKit
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet var itemLabel: UILabel!
-    //@IBOutlet var visualView: UIVisualEffectView!
+    @IBOutlet var visualView: UIVisualEffectView!
     
     let captureSession = AVCaptureSession()
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // Do any additional setup after loading the view.
         //self.view.bringSubviewToFront(visualView)
         self.setupCaptureSession()
-        self.view.bringSubviewToFront(itemLabel)
+        self.view.bringSubviewToFront(visualView)
     }
     
     func setupCaptureSession() {

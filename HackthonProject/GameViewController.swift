@@ -18,6 +18,13 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     
     var level: Level!
     
+    var timer: Timer?
+    var timeLeft = 5 {
+        didSet {
+            timeLabel.text = "Time: \(timeLeft)"
+        }
+    }
+    
     let captureSession = AVCaptureSession()
     
     enum CardState {
@@ -46,13 +53,40 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         self.setupCaptureSession()
         self.setupCard()
         
+        timeVisualView.layer.cornerRadius = 6.0
         
         self.navigationController?.navigationBar.tintColor = .red
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.title = level.name
         
-        //self.view.bringSubviewToFront(timeVisualView)
+        self.view.bringSubviewToFront(timeVisualView)
+        
+        switch level.gameMode {
+        case .seek:
+            timeVisualView.isHidden = false
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(secondsDown), userInfo: nil, repeats: true)
+        default:
+            timeVisualView.isHidden = true
+        }
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        captureSession.stopRunning()
+    }
+    
+    @objc func secondsDown(){
+        
+        timeLeft -= 1
+        
+        if timeLeft <= 0 {
+            timer!.invalidate()
+            timer = nil
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
     

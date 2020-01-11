@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-enum gameMode {
+enum GameMode {
     case seek
     case explore
+    case learn
 }
 
 struct Level {
@@ -19,4 +20,5 @@ struct Level {
     var time: Float?
     var flowers: [String]?
     var image: UIImage
+    var gameMode: GameMode
 }

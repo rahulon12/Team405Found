@@ -32,9 +32,9 @@ class HomeViewController: UIViewController {
     
     func setupLevels(){
         
-        let level1 = Level(name: "Seek", time: 300, flowers: nil, image: UIImage(systemName: "hare.fill")!)
-        let level2 = Level(name: "Explore", time: nil, flowers: nil, image: UIImage(systemName: "magnifyingglass.circle")!)
-        let level3 = Level(name: "Learn", time: nil, flowers: nil, image: UIImage(systemName: "book.circle")!)
+        let level1 = Level(name: "Seek", time: 300, flowers: nil, image: UIImage(systemName: "hare.fill")!, gameMode: .seek)
+        let level2 = Level(name: "Explore", time: nil, flowers: nil, image: UIImage(systemName: "magnifyingglass.circle")!, gameMode: .explore)
+        let level3 = Level(name: "Learn", time: nil, flowers: nil, image: UIImage(systemName: "book.circle")!, gameMode: .learn)
         
         levels = [level1, level2, level3]
         

@@ -15,11 +15,12 @@
 		B749B68E23C9897D0074DC39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B749B68C23C9897D0074DC39 /* LaunchScreen.storyboard */; };
 		B749B69923C9897E0074DC39 /* HackthonProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B69823C9897E0074DC39 /* HackthonProjectTests.swift */; };
 		B749B6A423C9897E0074DC39 /* HackthonProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B6A323C9897E0074DC39 /* HackthonProjectUITests.swift */; };
-		B749B6B223C9A21D0074DC39 /* FlowerClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B749B6B123C9A21D0074DC39 /* FlowerClassifier 1.mlmodel */; };
 		B749B6B523C9ABA70074DC39 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B6B323C9ABA70074DC39 /* CardViewController.swift */; };
 		B749B6B623C9ABA70074DC39 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B749B6B423C9ABA70074DC39 /* CardViewController.xib */; };
 		B749B6B823C9CD410074DC39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B6B723C9CD410074DC39 /* HomeViewController.swift */; };
-		B749B6BA23C9D3E60074DC39 /* FlowerClassifier2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B749B6B923C9D3E60074DC39 /* FlowerClassifier2.mlmodel */; };
+		B749B6BC23C9D8E20074DC39 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B6BB23C9D8E20074DC39 /* Levels.swift */; };
+		B749B6C023C9E6E80074DC39 /* ChallengeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B749B6BF23C9E6E80074DC39 /* ChallengeCollectionViewCell.swift */; };
+		B749B6C223C9F1940074DC39 /* FlowerClassifierFINAL.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B749B6C123C9F1940074DC39 /* FlowerClassifierFINAL.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +55,12 @@
 		B749B69F23C9897E0074DC39 /* HackthonProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackthonProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B749B6A323C9897E0074DC39 /* HackthonProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackthonProjectUITests.swift; sourceTree = "<group>"; };
 		B749B6A523C9897E0074DC39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B749B6B123C9A21D0074DC39 /* FlowerClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "FlowerClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		B749B6B323C9ABA70074DC39 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		B749B6B423C9ABA70074DC39 /* CardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		B749B6B723C9CD410074DC39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B749B6B923C9D3E60074DC39 /* FlowerClassifier2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier2.mlmodel; sourceTree = "<group>"; };
+		B749B6BB23C9D8E20074DC39 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		B749B6BF23C9E6E80074DC39 /* ChallengeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B749B6C123C9F1940074DC39 /* FlowerClassifierFINAL.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifierFINAL.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +116,14 @@
 				B749B68523C989760074DC39 /* ViewController.swift */,
 				B749B6B323C9ABA70074DC39 /* CardViewController.swift */,
 				B749B6B723C9CD410074DC39 /* HomeViewController.swift */,
+				B749B6BF23C9E6E80074DC39 /* ChallengeCollectionViewCell.swift */,
+				B749B6BB23C9D8E20074DC39 /* Levels.swift */,
 				B749B6B423C9ABA70074DC39 /* CardViewController.xib */,
 				B749B68723C989760074DC39 /* Main.storyboard */,
 				B749B68A23C9897D0074DC39 /* Assets.xcassets */,
 				B749B68C23C9897D0074DC39 /* LaunchScreen.storyboard */,
 				B749B68F23C9897D0074DC39 /* Info.plist */,
-				B749B6B123C9A21D0074DC39 /* FlowerClassifier 1.mlmodel */,
-				B749B6B923C9D3E60074DC39 /* FlowerClassifier2.mlmodel */,
+				B749B6C123C9F1940074DC39 /* FlowerClassifierFINAL.mlmodel */,
 			);
 			path = HackthonProject;
 			sourceTree = "<group>";
@@ -275,12 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B749B6C223C9F1940074DC39 /* FlowerClassifierFINAL.mlmodel in Sources */,
 				B749B68623C989760074DC39 /* ViewController.swift in Sources */,
-				B749B6BA23C9D3E60074DC39 /* FlowerClassifier2.mlmodel in Sources */,
+				B749B6BC23C9D8E20074DC39 /* Levels.swift in Sources */,
 				B749B68223C989760074DC39 /* AppDelegate.swift in Sources */,
 				B749B68423C989760074DC39 /* SceneDelegate.swift in Sources */,
 				B749B6B523C9ABA70074DC39 /* CardViewController.swift in Sources */,
-				B749B6B223C9A21D0074DC39 /* FlowerClassifier 1.mlmodel in Sources */,
+				B749B6C023C9E6E80074DC39 /* ChallengeCollectionViewCell.swift in Sources */,
 				B749B6B823C9CD410074DC39 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

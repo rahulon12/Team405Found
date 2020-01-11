@@ -189,7 +189,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
-        guard let model = try? VNCoreMLModel(for: FlowerClassifier2().model) else { return }
+        guard let model = try? VNCoreMLModel(for: FlowerClassifierFINAL().model) else { return }
         let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
             
             //                        print(finishedReq.results)
@@ -206,6 +206,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 } else {
                     self.cardViewController.itemLabel.text = "-"
                 }
+
                 
 //                if firstObservation.confidence > 0.95 {
 //                    self.cardViewController.itemLabel.text = firstObservation.identifier

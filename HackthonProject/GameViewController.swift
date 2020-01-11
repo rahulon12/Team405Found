@@ -19,7 +19,7 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     var level: Level!
     
     var timer: Timer?
-    var timeLeft = 5 {
+    var timeLeft = 300 {
         didSet {
             timeLabel.text = "Time: \(timeLeft)"
         }
@@ -36,9 +36,21 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     var visualEffectView:UIVisualEffectView!
     
     let cardHeight:CGFloat = 350
-    let cardHandleAreaHeight:CGFloat = 65
+    let cardHandleAreaHeight:CGFloat = 95
     
-    var cardVisible = false
+    var cardVisible = false {
+        didSet {
+            if cardVisible == true {
+                UIView.animate(withDuration: 0.2) {
+                    self.cardViewController.challengeLabel.alpha = 0
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.cardViewController.challengeLabel.alpha = 1
+                }
+            }
+        }
+    }
     var nextState:CardState {
         return cardVisible ? .collapsed : .expanded
     }
@@ -71,6 +83,8 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             timeVisualView.isHidden = true
         }
         
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -96,6 +110,7 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             self.view.addSubview(visualEffectView)
             
             cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
+            cardViewController.level = self.level
             self.addChild(cardViewController)
             self.view.addSubview(cardViewController.view)
             

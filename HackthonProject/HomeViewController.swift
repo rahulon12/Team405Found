@@ -8,6 +8,8 @@
 
 import UIKit
 
+var flowers = ["Rose", "Tulip", "Sunflower", "Dandelion", "Daisy"]
+
 class HomeViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
@@ -15,6 +17,8 @@ class HomeViewController: UIViewController {
     let cellScaling: CGFloat = 0.6
     
     var levels = [Level]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +28,27 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        //setupLevels()
+        //setupCollectionView()
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         setupLevels()
         setupCollectionView()
-        
         
     }
     
     func setupLevels(){
         
-        let level1 = Level(name: "Seek", time: 300, flowers: nil, image: UIImage(systemName: "hare.fill")!, gameMode: .seek)
+        let level1 = Level(name: "Seek",
+                           time: 300,
+                           flowers: [flowers.randomElement()!],
+                           image: UIImage(systemName: "hare.fill")!,
+                           gameMode: .seek)
         let level2 = Level(name: "Explore", time: nil, flowers: nil, image: UIImage(systemName: "magnifyingglass.circle")!, gameMode: .explore)
         let level3 = Level(name: "Learn", time: nil, flowers: nil, image: UIImage(systemName: "book.circle")!, gameMode: .learn)
         

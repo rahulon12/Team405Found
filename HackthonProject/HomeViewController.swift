@@ -34,8 +34,9 @@ class HomeViewController: UIViewController {
         
         let level1 = Level(name: "Seek", time: 300, flowers: nil, image: UIImage(systemName: "hare.fill")!)
         let level2 = Level(name: "Explore", time: nil, flowers: nil, image: UIImage(systemName: "magnifyingglass.circle")!)
+        let level3 = Level(name: "Learn", time: nil, flowers: nil, image: UIImage(systemName: "book.circle")!)
         
-        levels = [level1, level2]
+        levels = [level1, level2, level3]
         
         
     }
@@ -96,6 +97,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(identifier: "gameView") as! ViewController
+        
+        vc.level = levels[indexPath.item]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         
     }
     

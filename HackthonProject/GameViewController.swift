@@ -13,6 +13,11 @@ import AVKit
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet var timeVisualView: UIVisualEffectView!
+    @IBOutlet var timeLabel: UILabel!
+    
+    var level: Level!
+    
     let captureSession = AVCaptureSession()
     
     enum CardState {
@@ -40,6 +45,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         //self.view.bringSubviewToFront(visualView)
         self.setupCaptureSession()
         self.setupCard()
+        
+        
+        self.navigationController?.navigationBar.tintColor = .red
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barStyle = .black
+        self.title = level.name
+        
+        //self.view.bringSubviewToFront(timeVisualView)
+        
     }
     
     func setupCard() {
@@ -175,7 +189,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
-        previewLayer.cornerRadius = 8.5
+        
         
         
         let dataOutput = AVCaptureVideoDataOutput()

@@ -11,7 +11,7 @@ import CoreML
 import Vision
 import AVKit
 
-class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet var timeVisualView: UIVisualEffectView!
     @IBOutlet var timeLabel: UILabel!
@@ -69,8 +69,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             
             cardViewController.view.clipsToBounds = true
             
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleCardTap(recognzier:)))
-            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ViewController.handleCardPan(recognizer:)))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameViewController.handleCardTap(recognzier:)))
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(GameViewController.handleCardPan(recognizer:)))
             
             cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
             cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)

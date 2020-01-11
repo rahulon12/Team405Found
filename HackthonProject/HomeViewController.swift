@@ -102,7 +102,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = self.storyboard?.instantiateViewController(identifier: "gameView") as! ViewController
+        let vc = self.storyboard?.instantiateViewController(identifier: "gameView") as! GameViewController
         
         vc.level = levels[indexPath.item]
         

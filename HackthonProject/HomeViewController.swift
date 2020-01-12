@@ -8,13 +8,11 @@
 
 import UIKit
 
-var flowers = ["Rose", "Tulip", "Sunflower", "Dandelion", "Daisy"]
-
 class HomeViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
-    let cellScaling: CGFloat = 0.6
+    let cellScaling: CGFloat = 0.8
     
     var levels = [Level]()
     
@@ -47,11 +45,24 @@ class HomeViewController: UIViewController {
                            time: 300,
                            flowers: [flowers.randomElement()!],
                            image: UIImage(systemName: "hare.fill")!,
-                           gameMode: .seek)
-        let level2 = Level(name: "Explore", time: nil, flowers: nil, image: UIImage(systemName: "magnifyingglass.circle")!, gameMode: .explore)
-        let level3 = Level(name: "Learn", time: nil, flowers: nil, image: UIImage(systemName: "book.circle")!, gameMode: .learn)
+                           gameMode: .seek,
+                           description: "view your challenge")
         
-        levels = [level1, level2, level3]
+        let level2 = Level(name: "Explore",
+                           time: nil,
+                           flowers: nil,
+                           image: UIImage(systemName: "magnifyingglass.circle")!,
+                           gameMode: .explore,
+                           description: "learn more")
+        
+        let level3 = Level(name: "Learn",
+                           time: nil,
+                           flowers: nil,
+                           image: UIImage(systemName: "book.circle")!,
+                           gameMode: .learn,
+                           description: "answer a question")
+        
+        levels = [level2, level1, level3]
         
         
     }

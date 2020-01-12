@@ -21,5 +21,5 @@ struct Level {
     var flowers: [String]?
     var image: UIImage
     var gameMode: GameMode
-    
+    var description: String
 }

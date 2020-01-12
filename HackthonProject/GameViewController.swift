@@ -11,6 +11,7 @@ import CoreML
 import Vision
 import AVKit
 
+
 class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet var timeVisualView: UIVisualEffectView!
@@ -64,18 +65,15 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //self.view.bringSubviewToFront(visualView)
-        self.setupCaptureSession()
-        self.setupCard()
         
         timeVisualView.layer.cornerRadius = 6.0
         
-        self.navigationController?.navigationBar.tintColor = .red
+        self.navigationController?.navigationBar.tintColor = .yellow
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.title = level.name
         
-        self.view.bringSubviewToFront(timeVisualView)
         
         switch level.gameMode {
         case .seek:
@@ -86,6 +84,17 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         }
         
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupCaptureSession()
+        self.setupCard()
+        
+        self.view.bringSubviewToFront(timeVisualView)
+
         
     }
     
@@ -101,7 +110,15 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         if timeLeft <= 0 {
             timer!.invalidate()
             timer = nil
-            self.navigationController?.popViewController(animated: true)
+            
+            let alert = UIAlertController(title: "You ran out of time!", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Back to home", style: .cancel, handler: { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
         }
         
     }
@@ -254,7 +271,7 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
-        guard let model = try? VNCoreMLModel(for: FlowerClassifierFINAL().model) else { return }
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier_1().model) else { return }
         let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
             
             //                        print(finishedReq.results)
@@ -265,14 +282,35 @@ class GameViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             
             print(firstObservation.identifier, firstObservation.confidence)
             
+            let flowerName = firstObservation.identifier.capitalized
+            
             DispatchQueue.main.async {
-                if firstObservation.confidence > 0.95 {
-                    self.cardViewController.itemLabel.text = firstObservation.identifier
-                    self.currentFlower = firstObservation.identifier
-                } else {
-                    self.cardViewController.itemLabel.text = "-"
+                
+                switch self.level.gameMode {
+                case .explore:
+                    if firstObservation.confidence > 0.9 {
+                        self.cardViewController.itemLabel.text = flowerName
+                        self.cardViewController.descriptionLabel.text = flowerDescriptions[flowers.firstIndex(of: flowerName) ?? 0]
+                    } else {
+                        self.cardViewController.itemLabel.text = "----"
+                    }
+                case .seek:
+                    if firstObservation.confidence > 0.95 {
+                        self.cardViewController.itemLabel.text = flowerName
+                        self.currentFlower = flowerName
+                    } else {
+                        self.cardViewController.itemLabel.text = "----"
+                    }
+                case .learn:
+                    if firstObservation.confidence > 0.97 {
+                        self.cardViewController.currentFlower = flowerName
+                        self.captureSession.stopRunning()
+                        self.cardViewController.itemLabel.text = "Test Your Knowledge"
+                        self.animateTransitionIfNeeded(state: self.nextState, duration: 0.9)
+                        
+                    }
                 }
-
+                
                 
 //                if firstObservation.confidence > 0.95 {
 //                    self.cardViewController.itemLabel.text = firstObservation.identifier
@@ -299,11 +337,11 @@ extension GameViewController {
             
             let guessFlower = level.flowers!.first
             
-            if currentFlower.caseInsensitiveCompare(guessFlower!) == .orderedSame {
+            if currentFlower == guessFlower {
                 
                 let alert = UIAlertController(title: "Congrats!", message: nil, preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (action) in 
+                alert.addAction(UIAlertAction(title: "Back to home", style: .cancel, handler: { (action) in
                     self.navigationController?.popViewController(animated: true)
                 }))
                 

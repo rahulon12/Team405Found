@@ -26,7 +26,7 @@
         <!--Challenges-->
         <scene sceneID="5OK-Gd-x7H">
             <objects>
-                <viewController id="a7D-Dn-Cbc" customClass="HomeViewController" customModule="HackthonProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a7D-Dn-Cbc" customClass="HomeViewController" customModule="NatureBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fts-2O-iXa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,36 +35,35 @@
                                 <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wMo-CR-4ZX">
-                                    <size key="itemSize" width="256" height="439"/>
+                                    <size key="itemSize" width="275" height="500"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="T9U-MA-g8g" customClass="ChallengeCollectionViewCell" customModule="HackthonProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="256" height="439"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="T9U-MA-g8g" customClass="ChallengeCollectionViewCell" customModule="NatureBuddy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="35.5" width="275" height="500"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="439"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="275" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cy-C5-f6O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="439"/>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cy-C5-f6O">
+                                                    <rect key="frame" x="0.0" y="0.0" width="275" height="500"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="reI-tT-Mjk">
-                                                            <rect key="frame" x="8" y="8" width="240" height="128"/>
-                                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="128" id="PfT-Nd-zX7"/>
-                                                                <constraint firstAttribute="width" constant="240" id="YhO-Ms-rp2"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k5-7d-EZF">
-                                                            <rect key="frame" x="8" y="307" width="240" height="54"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="8" y="337.5" width="259" height="54"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="reI-tT-Mjk">
+                                                            <rect key="frame" x="8" y="77" width="259" height="184"/>
+                                                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="184" id="PfT-Nd-zX7"/>
+                                                                <constraint firstAttribute="width" constant="259" id="YhO-Ms-rp2"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -74,7 +73,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="0k5-7d-EZF" secondAttribute="trailing" constant="8" id="Uqs-Og-1Zv"/>
                                                         <constraint firstItem="0k5-7d-EZF" firstAttribute="leading" secondItem="9cy-C5-f6O" secondAttribute="leading" constant="8" id="jmC-a7-MO6"/>
                                                         <constraint firstItem="0k5-7d-EZF" firstAttribute="centerX" secondItem="9cy-C5-f6O" secondAttribute="centerX" id="tbo-zN-KYj"/>
-                                                        <constraint firstItem="reI-tT-Mjk" firstAttribute="top" secondItem="9cy-C5-f6O" secondAttribute="top" constant="8" id="w6J-Ka-qbA"/>
+                                                        <constraint firstItem="reI-tT-Mjk" firstAttribute="top" secondItem="9cy-C5-f6O" secondAttribute="top" constant="77" id="w6J-Ka-qbA"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -119,7 +118,7 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="gameView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="GameViewController" customModule="HackthonProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="GameViewController" customModule="NatureBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,7 +142,7 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
